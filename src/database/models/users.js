@@ -3,12 +3,10 @@ const uuid = require('uuidv4');
 module.exports = (sequelize, DataTypes) => {
   const users = sequelize.define('users', {
     name: DataTypes.STRING,
-    taxpayerId: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
-    phone: DataTypes.STRING,
     email: DataTypes.STRING,
-    agreeTermsOfService: DataTypes.BOOLEAN,
+    phone: DataTypes.STRING,
   }, {
     underscored: true,
     paranoid: true,

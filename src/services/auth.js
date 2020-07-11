@@ -1,12 +1,14 @@
 const { sign } = require('jsonwebtoken');
+const { db } = require('../database/models');
 const { compare } = require('bcryptjs');
 const { jwt } = require('../config');
 const AppError = require('../errors/AppError');
 
+const { users } = db;
+
 const authenticateUserService  = {
   async execute({ email, password }) {
-    // TODO find user in database
-    const user = { email: 'email@teste.com', password: '1234'}
+    const user = await users.findOne({where: { email }});
     if (!user) {
       throw new AppError('Invalid email.', 401);
     }
