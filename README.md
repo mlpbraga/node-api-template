@@ -5,8 +5,3 @@ Template de um CRUD de usuários em uma API usando NodeJs, PostgreSQL e Sequeliz
 - NodeJS (com Yarn ou NPM)
 - Docker e Docker Compose
 
-## Estrutura
-
-## Como rodar
-
-
