@@ -1,4 +1,5 @@
 const express = require('express');
+require('express-async-errors');
 const cors = require('cors');
 const { errors } = require('celebrate');
 const AppError = require('./errors/AppError');

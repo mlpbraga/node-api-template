@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
   });
 
-  users.beforeCreate(user => user.id = uuid());
+  users.beforeCreate(user => user.id = uuid.uuid());
 
   users.associate = (models) => {
     // associations can be defined here

@@ -13,7 +13,6 @@ usersRouter.get(
   usersController.handleGet
 );
 usersRouter.put('/', ensureAuthenticated, usersController.handlePut);
-usersRouter.patch('/', ensureAuthenticated, usersController.handlePatch);
 usersRouter.delete('/', ensureAuthenticated, usersController.handleDelete);
 
 module.exports = usersRouter;

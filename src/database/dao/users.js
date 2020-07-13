@@ -1,11 +1,22 @@
 const { db } = require('../models');
+const { hash } = require('bcryptjs');
+const AppError = require('../../errors/AppError');
 
 const { users } = db;
 
 const UsersDAO = {
   create: async (params) => {
-    const newUser = await users.create(params);
-    return newUser;
+    try {
+      const { password } = params;
+      const newPassword = await hash(password, 8);
+      const newUser = await users.create({
+        ...params,
+        password: newPassword,
+      });
+      return newUser;
+    } catch (error) {
+      console.error(error)
+    }
   },
   read: async (params) => {
     const {

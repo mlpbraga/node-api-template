@@ -8,34 +8,27 @@ const usersController = {
     let response;
     const reqParams = await BaseRequestFormatter.format(req);
     response = await UsersDAO.read(reqParams);
-    response = usersResponseFormatter.format(response);
+    response = usersResponseFormatter.formatMany(response);
     return res.json(response);
   },
   handlePost: async (req, res) => {
     let response;
     const reqParams = await BaseRequestFormatter.format(req);
     response = await UsersDAO.create(reqParams);
-    response = usersResponseFormatter.format(response);
+    response = usersResponseFormatter.formatOne(response);
     return res.json(response);
   },
   handlePut: async (req, res) => {
     let response;
     const reqParams = await BaseRequestFormatter.format(req);
-    response = await UsersDAO.read(reqParams);
+    response = await UsersDAO.update(reqParams);
     response = usersResponseFormatter.format(response);
     return res.json(response);
   },
   handleDelete: async (req, res) => {
     let response;
     const reqParams = await BaseRequestFormatter.format(req);
-    response = await UsersDAO.read(reqParams);
-    response = usersResponseFormatter.format(response);
-    return res.json(response);
-  },
-  handlePatch: async (req, res) => {
-    let response;
-    const reqParams = await BaseRequestFormatter.format(req);
-    response = await UsersDAO.read(reqParams);
+    response = await UsersDAO.delete(reqParams);
     response = usersResponseFormatter.format(response);
     return res.json(response);
   },
