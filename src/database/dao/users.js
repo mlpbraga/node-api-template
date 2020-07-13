@@ -30,6 +30,18 @@ const UsersDAO = {
     console.log(foundUser)
     return foundUser;
   },
+  update: async (params) => {
+    try {
+      const newPassword = await hash(password, 8);
+      const newUser = await users.create({
+        ...params,
+        password: newPassword,
+      });
+      return newUser;
+    } catch (error) {
+      console.error(error)
+    }
+  },
 };
 
 module.exports = UsersDAO;

@@ -17,7 +17,7 @@ usersRouter.get(
   routeCache.cacheSeconds(process.env.ROUTE_CACHE_SECONDS),
   usersController.handleGetMany
 );
-usersRouter.put('/', ensureAuthenticated, usersController.handlePut);
-usersRouter.delete('/', ensureAuthenticated, usersController.handleDelete);
+usersRouter.put('/:id', ensureAuthenticated, usersController.handlePut);
+usersRouter.delete('/:id', ensureAuthenticated, usersController.handleDelete);
 
 module.exports = usersRouter;
