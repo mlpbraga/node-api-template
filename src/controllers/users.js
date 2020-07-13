@@ -4,11 +4,18 @@ const UsersDAO = require('../database/dao/users');
 const usersResponseFormatter = require('../formatters/response/users');
 
 const usersController = {
-  handleGet: async (req, res) => {
+  handleGetMany: async (req, res) => {
     let response;
     const reqParams = await BaseRequestFormatter.format(req);
     response = await UsersDAO.read(reqParams);
     response = usersResponseFormatter.formatMany(response);
+    return res.json(response);
+  },
+  handleGetOne: async (req, res) => {
+    let response;
+    const reqParams = await BaseRequestFormatter.format(req);
+    response = await UsersDAO.read(reqParams);
+    response = usersResponseFormatter.formatOne(response);
     return res.json(response);
   },
   handlePost: async (req, res) => {

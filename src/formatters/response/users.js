@@ -1,8 +1,7 @@
 const _ = require('lodash');
 
 const usersResponseFormatter = {
-  formatOne: (response) => {
-    return {
+  formatOne: (response) => ({
       id: response.id,
       name: response.name,
       phone: response.phone,
@@ -10,8 +9,7 @@ const usersResponseFormatter = {
       username: response.username,
       createdAt: response.createdAt,
       updatedAt: response.updatedAt,
-    }
-  },
+  }),
   formatMany: (response) => {
     return response.map(user => ({
         id: user.id,
